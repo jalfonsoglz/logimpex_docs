@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="docs_tree" model="ir.ui.view">
+        <field name="name">logimpex.docs.tree</field>
+        <field name="model">logimpex.docs</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="partner_id" />
+                <field name="document_filename" />
+                <field name="document_tag" widget="many2many_tags" options="{'color_field': 'color'}" />
+                <field name="note" />
+            </tree>
+        </field>
+    </record>
+    <record id="docs_form" model="ir.ui.view">
+        <field name="name">logimpex.docs.form</field>
+        <field name="model">logimpex.docs</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet string="Partner_Documents">
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" required="1" placeholder="Nombre del documento..." />
+                        </h1>
+                    </div>
+                    <group name="document_info">
+                        <group name="document_info_left">
+                            <attribute name="string">Relación del documento</attribute>
+                            <field name="partner_id" />
+                                <field name="document_tag" widget="many2many_tags" options="{'color_field': 'x_color'}" />
+                        </group>
+                        <group name="document_info_right">
+                            <attribute name="string">Información del documento</attribute>
+                            <field name="note" placeholder="Notas..." />
+                            <field name="document_filename" />
+                        </group>
+                    </group>
+                    <group name="document_viewer">
+                        <field filename="document_filename" name="document" widget="pdf_viewer" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="docs_search" model="ir.ui.view">
+        <field name="name">logimpex.docs.search</field>
+        <field name="model">logimpex.docs</field>
+        <field name="arch" type="xml">
+            <search string="Documentos">
+                <field name="name" />
+                <field name="document_tag" />
+                <field name="note" />
+                <separator />
+                <group expand="1" string="Group by">
+                    <filter string="Contacto" name="partner_id" context="{'group_by':'partner_id' }" />
+                </group>
+            </search>
+        </field>
+    </record>
+    <record id="docs_action" model="ir.actions.act_window">
+        <field name="name">Documentos</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">logimpex.docs</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crear tu primer registro!
+            </p>
+        </field>
+    </record>
+    <menuitem id="docs_config" name="Documentos Cliente" parent="embarques_config_root" action="docs_action" sequence="2" />
+</odoo>
