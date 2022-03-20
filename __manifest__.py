@@ -16,6 +16,7 @@
     'depends': [
         'base',
         'mail',
+        'logimpex',
     ],
     'data': [
         'security/ir.model.access.csv',
