@@ -33,7 +33,7 @@
                         <group name="document_info_right">
                             <attribute name="string">Información del documento</attribute>
                             <field name="note" placeholder="Notas..." />
-                            <field name="document_filename" />
+                            <field name="document_filename" widget="many2many_binary"/>
                         </group>
                     </group>
                     <group name="document_viewer">
