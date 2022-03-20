@@ -7,7 +7,7 @@ class Docs(models.Model):
 
 	name = fields.Char()
 	partner_id = fields.Many2one('res.partner', string='Cliente', required=True, index=True, tracking=True)
-	document = fields.binary(string='Documento', required=True, index=True)
+	document = fields.Binary(string='Documento', required=True, index=True)
 	document_filename = fields.Char(string='Nombre del documento')
 	document_tag = fields.Many2many('logimpex.docs.tags', string='Etiquetas')
 	note = fields.Text(string='Descripción', copy=False, tracking=True)
