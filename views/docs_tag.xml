@@ -45,5 +45,5 @@
             </p>
         </field>
     </record>
-    <menuitem id="docs_tags_config" name="Etiquetas de Documentos" parent="embarques_config_root" action="docs_tags_action" sequence="2" />
+    <menuitem id="docs_tags_config" name="Etiquetas de Documentos" action="docs_tags_action" sequence="2" />
 </odoo>
