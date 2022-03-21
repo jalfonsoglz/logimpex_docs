@@ -70,5 +70,5 @@
             </p>
         </field>
     </record>
-    <menuitem id="docs_config" name="Documentos Cliente" action="docs_action" sequence="2" />
+    <menuitem id="docs_config" name="Documentos Cliente" parent="embarques_root" action="docs_action" sequence="2" />
 </odoo>
