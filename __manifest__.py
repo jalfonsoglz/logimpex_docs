@@ -16,12 +16,12 @@
     'depends': [
         'base',
         'mail',
-        'logimpex',
     ],
     'data': [
         'security/ir.model.access.csv',
         'views/docs.xml',
-        'views/docs_tags.xml'
+        'views/docs_tags.xml',
+        'data/partner_docs.xml'
     ],
     'demo': [],
     'installable': True,

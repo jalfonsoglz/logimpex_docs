@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
+
     <record id="docs_tree" model="ir.ui.view">
         <field name="name">logimpex.docs.tree</field>
         <field name="model">logimpex.docs</field>
@@ -13,6 +14,7 @@
             </tree>
         </field>
     </record>
+
     <record id="docs_form" model="ir.ui.view">
         <field name="name">logimpex.docs.form</field>
         <field name="model">logimpex.docs</field>
@@ -25,16 +27,12 @@
                         </h1>
                     </div>
                     <group name="document_info">
-                        <group name="document_info_left">
-                            <attribute name="string">Relación del documento</attribute>
+                        <group name="document_info_left" string="Contacto relacionado al documento">
                             <field name="partner_id" />
-                                <field name="document_tag" widget="many2many_tags" options="{'color_field': 'x_color'}" />
+                            <field name="document_tag" widget="many2many_tags" options="{'color_field': 'color'}" />
                         </group>
                         <group name="document_info_right">
-                            <attribute name="string">Información del documento</attribute>
                             <field name="note" placeholder="Notas..." />
-                            <field name="document" filename="document_filename" required="1" />
-                            <field name="document_filename" invisible="1" />
                         </group>
                     </group>
                     <group name="document_viewer">
@@ -44,6 +42,7 @@
             </form>
         </field>
     </record>
+
     <record id="docs_search" model="ir.ui.view">
         <field name="name">logimpex.docs.search</field>
         <field name="model">logimpex.docs</field>
@@ -59,6 +58,7 @@
             </search>
         </field>
     </record>
+
     <record id="docs_action" model="ir.actions.act_window">
         <field name="name">Documentos</field>
         <field name="type">ir.actions.act_window</field>
@@ -70,5 +70,8 @@
             </p>
         </field>
     </record>
-    <menuitem id="docs_config" name="Documentos Cliente" parent="embarques_root" action="docs_action" sequence="2" />
+
+    <menuitem id="docs_config_root" name="Documentos Cliente" action="docs_action" sequence="1" />
+    <menuitem id="docs_config" name="Documentos" parent="docs_config_root" action="docs_action" sequence="2" />
+
 </odoo>
